@@ -1,0 +1,10 @@
+LEAIME - AVALIACAO HADOOP - Frederico Luz Braga
+
+Para executar o seguinte script siga os seguintes passos:
+1) Descompacte o o diretoriio avaliacaoHadoop
+2) Acesse o terminal do VM da cloudera
+3) Pelo terminal , acesse o diretorio "avaliacaoHadoop" 
+4) Libere permissao 755 para o scriptHadoop:
+	chmod 755 ./scriptHadoop
+5) Execute o script:
+	./scriptHadoop

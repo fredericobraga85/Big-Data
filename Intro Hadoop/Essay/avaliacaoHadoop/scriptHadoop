@@ -1,0 +1,21 @@
+#!/bin/bash
+echo ""
+echo "Inicio Avaliacao Hadoop - Frederico Luz Braga" 
+echo ""
+hadoop fs -rm -r /user/hadoop/temperatura/output
+hadoop fs -rm -r /user/hadoop/temperatura/input
+hadoop fs -mkdir /user/hadoop/temperatura/input
+hadoop fs -put ./dados/* /user/hadoop/temperatura/input
+javac -cp "/usr/lib/hadoop/client-0.20/*" ./org/myorg/TemperatureAvg.java
+jar cvf ./org/myorg/TemperatureAvg.jar ./org/myorg/*.class
+hadoop jar ./org/myorg/TemperatureAvg.jar org.myorg.TemperatureAvg /user/hadoop/temperatura/input /user/hadoop/temperatura/output
+echo ""
+echo "RESULTADO MEDIA TEMPERATURA: " 
+echo ""
+hadoop fs -cat /user/hadoop/temperatura/output/part-r-00000
+echo "" 
+echo "Fim de Avaliacao - Frederico Luz Braga"
+echo ""
+
+
+
